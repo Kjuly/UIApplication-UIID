@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		0E54A8E9164FAD7A008AFCA9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E54A8E8164FAD7A008AFCA9 /* Default-568h@2x.png */; };
 		0E698F11159ECA8E00F48EF2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E698EF0159ECA4900F48EF2 /* Foundation.framework */; };
-		0E698F1E159ECAAE00F48EF2 /* UIApplication+UIID.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E698F1C159ECAAE00F48EF2 /* UIApplication+UIID.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0E698F1F159ECAAE00F48EF2 /* UIApplication+UIID.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E698F1D159ECAAE00F48EF2 /* UIApplication+UIID.m */; };
 		0E698F20159ECADB00F48EF2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E698EEE159ECA4900F48EF2 /* UIKit.framework */; };
 		0E698F22159ECAE200F48EF2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E698F21159ECAE200F48EF2 /* Security.framework */; };
 		0E698F2F159ECF7600F48EF2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E698EEE159ECA4900F48EF2 /* UIKit.framework */; };
@@ -23,6 +21,8 @@
 		0E698F4C159ED07900F48EF2 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E698F4B159ED07900F48EF2 /* ViewController.xib */; };
 		0EEC0B4F159ED8360036A9C2 /* libUIApplication-UIID.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EEC0B4D159ED1B80036A9C2 /* libUIApplication-UIID.a */; };
 		0EEC0B50159ED83F0036A9C2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E698F21159ECAE200F48EF2 /* Security.framework */; };
+		7FD902E616DCCC6B00CD7329 /* UIApplication+UIID.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FD902E416DCCC6B00CD7329 /* UIApplication+UIID.h */; };
+		7FD902E716DCCC6B00CD7329 /* UIApplication+UIID.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD902E516DCCC6B00CD7329 /* UIApplication+UIID.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +39,6 @@
 		0E54A8E8164FAD7A008AFCA9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0E698EEE159ECA4900F48EF2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0E698EF0159ECA4900F48EF2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		0E698F1C159ECAAE00F48EF2 /* UIApplication+UIID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+UIID.h"; sourceTree = SOURCE_ROOT; };
-		0E698F1D159ECAAE00F48EF2 /* UIApplication+UIID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+UIID.m"; sourceTree = SOURCE_ROOT; };
 		0E698F21159ECAE200F48EF2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		0E698F2D159ECF7600F48EF2 /* UIApplication-UUID-DebugApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UIApplication-UUID-DebugApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E698F31159ECF7600F48EF2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -54,6 +52,8 @@
 		0E698F46159ECF7600F48EF2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0E698F4B159ED07900F48EF2 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		0EEC0B4D159ED1B80036A9C2 /* libUIApplication-UIID.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libUIApplication-UIID.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FD902E416DCCC6B00CD7329 /* UIApplication+UIID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+UIID.h"; sourceTree = "<group>"; };
+		7FD902E516DCCC6B00CD7329 /* UIApplication+UIID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+UIID.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +85,7 @@
 		0E698EDF159ECA4900F48EF2 = {
 			isa = PBXGroup;
 			children = (
-				0E698F12159ECA8E00F48EF2 /* UIApplication-UIID */,
+				7FD902E316DCCC6B00CD7329 /* UIApplication-UIID */,
 				0E698F33159ECF7600F48EF2 /* UIApplication-UUID-DebugApp */,
 				0E698EED159ECA4900F48EF2 /* Frameworks */,
 				0E698F2D159ECF7600F48EF2 /* UIApplication-UUID-DebugApp.app */,
@@ -102,15 +102,6 @@
 				0E698F21159ECAE200F48EF2 /* Security.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		0E698F12159ECA8E00F48EF2 /* UIApplication-UIID */ = {
-			isa = PBXGroup;
-			children = (
-				0E698F1C159ECAAE00F48EF2 /* UIApplication+UIID.h */,
-				0E698F1D159ECAAE00F48EF2 /* UIApplication+UIID.m */,
-			);
-			path = "UIApplication-UIID";
 			sourceTree = "<group>";
 		};
 		0E698F33159ECF7600F48EF2 /* UIApplication-UUID-DebugApp */ = {
@@ -138,6 +129,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7FD902E316DCCC6B00CD7329 /* UIApplication-UIID */ = {
+			isa = PBXGroup;
+			children = (
+				7FD902E416DCCC6B00CD7329 /* UIApplication+UIID.h */,
+				7FD902E516DCCC6B00CD7329 /* UIApplication+UIID.m */,
+			);
+			path = "UIApplication-UIID";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -145,7 +145,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E698F1E159ECAAE00F48EF2 /* UIApplication+UIID.h in Headers */,
+				7FD902E616DCCC6B00CD7329 /* UIApplication+UIID.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E698F1F159ECAAE00F48EF2 /* UIApplication+UIID.m in Sources */,
+				7FD902E716DCCC6B00CD7329 /* UIApplication+UIID.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

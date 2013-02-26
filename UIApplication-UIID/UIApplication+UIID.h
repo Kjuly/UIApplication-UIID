@@ -30,11 +30,19 @@
 
 
 /*
- * Define |UIID_PERSISTENT = 1| to enable persistent |UIID| via Keychain.
+ * Define |UIID_PERSISTENT = 1| to enable persistent UIID via Keychain.
  * This feature requires |Security.framework| to be included to your projects.
  */
 #ifndef UIID_PERSISTENT
 #define UIID_PERSISTENT 0
+#endif
+
+/*
+ * Define |APPLY_SECRET_UIID_KEY = 1| to use a secret UIID key
+ *   for better security
+ */
+#ifndef APPLY_SECRET_UIID_KEY
+#define APPLY_SECRET_UIID_KEY 0
 #endif
 
 

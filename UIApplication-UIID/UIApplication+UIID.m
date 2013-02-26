@@ -40,25 +40,53 @@
 #endif
 
 
+// If secret UIID key not needed, use a default key
+#ifndef APPLY_SECRET_UIID_KEY
 static NSString * const UIApplication_UIID_Key  = @"uniqueInstallationIdentifier";
+#endif
 static NSString * const UIApplication_UIID_Zero = @"00000000-0000-0000-0000-000000000000";
 
 
+@interface UIApplication (Private)
+
+// Return the key for UIID
+// Encrypt the key here for security reason
+- (NSString *)_key;
+
+@end
+
+
 @implementation UIApplication (UIApplication_UIID)
+
+#pragma mark - Private Methods
+
+// Return the key for UIID
+// Encrypt the key here for better security
+- (NSString *)_key {
+#ifdef APPLY_SECRET_UIID_KEY
+  return kUIIDKey;
+#else
+  return UIApplication_UIID_Key;
+#endif
+}
+
+#pragma mark - Public Methods
 
 - (NSString *)uniqueInstallationIdentifier {
   // Search for already created UIID
   // If found, return it
   // If not found, create a new UUID as a new UIID of this installation and save it
   NSString * uuidString = nil;
+  // Key for UIID
+  NSString * uiidKey = [self _key];
     
 #if UIID_PERSISTENT
   // UIID must be persistent even if the application is removed from devices
   // Use keychain as a storage
   NSDictionary * query = [NSDictionary dictionaryWithObjectsAndKeys:
                           (__bridge id)kSecClassGenericPassword,   (__bridge id)kSecClass,
-                          UIApplication_UIID_Key,                  (__bridge id)kSecAttrGeneric,
-                          UIApplication_UIID_Key,                  (__bridge id)kSecAttrAccount,
+                          uiidKey,                                 (__bridge id)kSecAttrGeneric,
+                          uiidKey,                                 (__bridge id)kSecAttrAccount,
                           [[NSBundle mainBundle] bundleIdentifier],(__bridge id)kSecAttrService,
                           (__bridge id)kSecMatchLimitOne,          (__bridge id)kSecMatchLimit,
                           (__bridge id)kCFBooleanTrue,             (__bridge id)kSecReturnAttributes,
@@ -85,7 +113,7 @@ static NSString * const UIApplication_UIID_Zero = @"00000000-0000-0000-0000-0000
 #else
   // UIID may not be persistent
   // Use NSUserDefalt as a storage
-  uuidString = [[NSUserDefaults standardUserDefaults] stringForKey:UIApplication_UIID_Key];
+  uuidString = [[NSUserDefaults standardUserDefaults] stringForKey:uiidKey];
 #endif
     
   // Generate the new UIID when:
@@ -125,8 +153,8 @@ static NSString * const UIApplication_UIID_Zero = @"00000000-0000-0000-0000-0000
     // Use keychain as a storage
     NSMutableDictionary * query = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                    (__bridge id)kSecClassGenericPassword,    (__bridge id)kSecClass,
-                                   UIApplication_UIID_Key,                   (__bridge id)kSecAttrGeneric,
-                                   UIApplication_UIID_Key,                   (__bridge id)kSecAttrAccount,
+                                   uiidKey,                                  (__bridge id)kSecAttrGeneric,
+                                   uiidKey,                                  (__bridge id)kSecAttrAccount,
                                    [[NSBundle mainBundle] bundleIdentifier], (__bridge id)kSecAttrService,
                                    @"",                                      (__bridge id)kSecAttrLabel,
                                    @"",                                      (__bridge id)kSecAttrDescription,
@@ -165,20 +193,22 @@ static NSString * const UIApplication_UIID_Zero = @"00000000-0000-0000-0000-0000
     //   as a plist file.
     // Any jailbroken user can extract values from it.
     [[NSUserDefaults standardUserDefaults] setObject:uuidString
-                                              forKey:UIApplication_UIID_Key];
+                                              forKey:uiidKey];
 #endif
   }
   return uuidString;
 }
 
 - (void)resetUniqueInstallationIdentifier {
+  // Key for UIID
+  NSString * uiidKey = [self _key];
 #if UIID_PERSISTENT
   // UIID must be persistent even if the application is removed from devices
   // Use keychain as a storage
   NSDictionary * query = [NSDictionary dictionaryWithObjectsAndKeys:
                           (__bridge id)kSecClassGenericPassword,   (__bridge id)kSecClass,
-                          UIApplication_UIID_Key,                  (__bridge id)kSecAttrGeneric,
-                          UIApplication_UIID_Key,                  (__bridge id)kSecAttrAccount,
+                          uiidKey,                                 (__bridge id)kSecAttrGeneric,
+                          uiidKey,                                 (__bridge id)kSecAttrAccount,
                           [[NSBundle mainBundle] bundleIdentifier],(__bridge id)kSecAttrService,
                           nil];
   OSStatus result = SecItemDelete((__bridge CFDictionaryRef)query);
@@ -196,7 +226,7 @@ static NSString * const UIApplication_UIID_Zero = @"00000000-0000-0000-0000-0000
   // This could be much more vulnerable since the NSUserDefaults stores values
   //   as a plist file.
   // Any jailbroken user can extract values from it.
-  [[NSUserDefaults standardUserDefaults] removeObjectForKey:UIApplication_UIID_Key];
+  [[NSUserDefaults standardUserDefaults] removeObjectForKey:uiidKey];
   NSLog(@"[INFO}  Unique Installation Identifier is successfully reset.");
 #endif
 }
